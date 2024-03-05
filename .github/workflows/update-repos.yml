@@ -7,38 +7,37 @@ on:
   workflow_dispatch: # Allows manual trigger
 
 jobs:
-  update-repos:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        # Ensure you're using the latest version to avoid issues related to deprecated Node.js versions in actions
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-          # Correctly sets Node.js 20, aligning with GitHub's migration path for Node.js versions in actions
-
-      - name: Generate repositories list
-        run: |
-          echo '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>My GitHub Repositories</title></head><body><h1>My GitHub Repositories</h1><div>' > index.html
-          curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/users/lrosenplaenter/repos | jq '.[] | "<a href=\"" + .html_url + "\">" + .name + "</a><br>"' | sed 's/"//g' >> index.html
-          echo '</div></body></html>' >> index.html
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          # Ensure your GH_TOKEN has the correct permissions to access your repositories
-
-      - name: Commit and push if changed
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add index.html
-          if git diff --staged --quiet; then
-            echo "No changes to commit."
-          else
-            git commit -m "Update repository list"
-            git push || echo "Failed to push changes. Check if GH_TOKEN has required permissions."
-          fi
-        # Enhanced error handling for better diagnostics
+    update-repos:
+      runs-on: ubuntu-latest
+  
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+          with:
+            ref: main
+  
+        - name: Set up Node.js
+          uses: actions/setup-node@v3
+          with:
+            node-version: '20'
+  
+        - name: Generate repositories list
+          run: |
+            echo '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>My GitHub Repositories</title></head><body><h1>My GitHub Repositories</h1><div>' > index.html
+            curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/users/lrosenplaenter/repos | jq '.[] | "<a href=\"" + .html_url + "\">" + .name + "</a><br>"' | sed 's/"//g' >> index.html
+            echo '</div></body></html>' >> index.html
+          env:
+            GH_TOKEN: ${{ secrets.GH_TOKEN }}
+  
+        - name: Commit and push if changed
+          run: |
+            git config user.name github-actions
+            git config user.email github-actions@github.com
+            git add index.html
+            git status
+            if git diff --quiet --exit-code; then
+              echo "No changes detected."
+            else
+              git commit -m "Update repository list"
+              git push
+            fi
