@@ -23,7 +23,43 @@ jobs:
 
       - name: Generate repositories list
         run: |
-          curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/users/lrosenplaenter/repos | jq '[.[] | {name: .name, html_url: .html_url}]' > repos.json
+          # Fetching basic repo details
+          REPOS=$(curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/users/lrosenplaenter/repos)
+          REPOS_JSON="["
+
+          for row in $(echo "${REPOS}" | jq -r '.[] | @base64'); do
+            _jq() {
+              echo ${row} | base64 --decode | jq -r ${1}
+            }
+
+            # Fetching additional details for each repository
+            REPO_NAME=$(_jq '.name')
+            COMMITS_URL=$(echo $(_jq '.commits_url') | sed 's/{\/sha}//')
+            COMMITS=$(curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" $COMMITS_URL)
+            LAST_COMMIT=$(echo $COMMITS | jq -r '.[0].commit.author.date')
+            GH_PAGES_URL="https://${{ github.repository_owner }}.github.io/${REPO_NAME}"
+            # Check if GitHub Pages is enabled by attempting to fetch the page and checking HTTP status
+            HTTP_STATUS=$(curl -o /dev/null -s -w "%{http_code}\n" $GH_PAGES_URL)
+            if [ $HTTP_STATUS -eq 404 ]; then
+              GH_PAGES_URL="null"
+            fi
+
+            REPOS_JSON+="{
+              \"name\": \"$(_jq '.name')\",
+              \"html_url\": \"$(_jq '.html_url')\",
+              \"description\": \"$(_jq '.description')\",
+              \"github_pages_url\": $GH_PAGES_URL,
+              \"commits_count\": $(echo $COMMITS | jq length),
+              \"latest_commit_timestamp\": \"$LAST_COMMIT\",
+              \"repository_picture\": \"$(_jq '.owner.avatar_url')\"
+            },"
+          done
+
+          # Removing the last comma and closing the JSON array
+          REPOS_JSON=$(echo "$REPOS_JSON" | sed 's/,$//')
+          REPOS_JSON+="]"
+
+          echo $REPOS_JSON > repos.json
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
