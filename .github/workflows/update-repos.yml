@@ -23,7 +23,7 @@ jobs:
 
       - name: Generate repositories list
         run: |
-          curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/users/lrosenplaenter/repos | jq '[.[] | {name: .name, html_url: .html_url, description: .description}]' > repos.json
+          curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/users/lrosenplaenter/repos | jq '[.[] | {name: .name, html_url: .html_url, description: .description, license: .license.spdx_id, last_update: .pushed_at, homage: ("https://lrosenplaenter.github.io/" + .name)}]' > repos.json
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
