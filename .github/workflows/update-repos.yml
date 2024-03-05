@@ -24,9 +24,11 @@ jobs:
         - name: Generate repositories list
           run: |
             echo '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>My GitHub Repositories</title></head><body><h1>My GitHub Repositories</h1><div>' > index.html
-            curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/users/lrosenplaenter/repos | jq '.[] | "<a href=\"" + .html_url + "\">" + .name + "</a><br>"' | sed 's/"//g' >> index.html
+            REPOS=$(curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/users/lrosenplaenter/repos)
+            echo "$REPOS"  # This line will print the raw JSON output to the log
+            echo "$REPOS" | jq '.[] | "<a href=\"" + .html_url + "\">" + .name + "</a><br>"' | sed 's/"//g' >> index.html
             echo '</div></body></html>' >> index.html
-          env:
+            env:
             GH_TOKEN: ${{ secrets.GH_TOKEN }}
   
         - name: Commit and push if changed
