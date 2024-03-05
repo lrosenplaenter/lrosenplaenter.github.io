@@ -1,30 +1,37 @@
 [
   {
     "name": "DiaMetrics",
-    "html_url": "https://github.com/lrosenplaenter/DiaMetrics"
+    "html_url": "https://github.com/lrosenplaenter/DiaMetrics",
+    "description": "DiaMetrics is a web-based educational resource for exploring important concepts regarding binary classification (and its evaluation), which is important in many different fields such as psychodiagnostics (e.g. in determining cut-off values for tests), machine learning or medical testing."
   },
   {
     "name": "DiaMetrics_DE",
-    "html_url": "https://github.com/lrosenplaenter/DiaMetrics_DE"
+    "html_url": "https://github.com/lrosenplaenter/DiaMetrics_DE",
+    "description": null
   },
   {
     "name": "DiaMetrics_lite",
-    "html_url": "https://github.com/lrosenplaenter/DiaMetrics_lite"
+    "html_url": "https://github.com/lrosenplaenter/DiaMetrics_lite",
+    "description": "DiaMetrics (lite) is a web-based educational resource for exploring important concepts regarding binary classification (and its evaluation), which is important in many different fields such as psychodiagnostics (e.g. in determining cut-off values for tests), machine learning or medical testing."
   },
   {
     "name": "lrosenplaenter.github.io",
-    "html_url": "https://github.com/lrosenplaenter/lrosenplaenter.github.io"
+    "html_url": "https://github.com/lrosenplaenter/lrosenplaenter.github.io",
+    "description": null
   },
   {
     "name": "Playa",
-    "html_url": "https://github.com/lrosenplaenter/Playa"
+    "html_url": "https://github.com/lrosenplaenter/Playa",
+    "description": null
   },
   {
     "name": "prezenta",
-    "html_url": "https://github.com/lrosenplaenter/prezenta"
+    "html_url": "https://github.com/lrosenplaenter/prezenta",
+    "description": null
   },
   {
     "name": "TEST",
-    "html_url": "https://github.com/lrosenplaenter/TEST"
+    "html_url": "https://github.com/lrosenplaenter/TEST",
+    "description": null
   }
 ]
