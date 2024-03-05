@@ -23,10 +23,7 @@ jobs:
 
       - name: Generate repositories list
         run: |
-          TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-          echo "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\"><title>My GitHub Repositories</title></head><body><h1>My GitHub Repositories</h1><p>Updated on: $TIMESTAMP</p><div>" > index.html
-          curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/users/lrosenplaenter/repos | jq '.[] | "<a href=\"" + .html_url + "\">" + .name + "</a><br>"' | sed 's/"//g' >> index.html
-          echo '</div></body></html>' >> index.html
+          curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/users/lrosenplaenter/repos | jq '[.[] | {name: .name, html_url: .html_url}]' > repos.json
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
@@ -34,6 +31,14 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add index.html
-          git commit -m "Update repository list with timestamp"
+          
+          # Determine if triggered by schedule or manual dispatch
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            COMMIT_MSG="Automated update of repository list: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          else
+            COMMIT_MSG="Manual update of repository list: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          fi
+          
+          git add repos.json
+          git commit -m "${COMMIT_MSG}"
           git push
