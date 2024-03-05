@@ -2,36 +2,57 @@
   {
     "name": "DiaMetrics",
     "html_url": "https://github.com/lrosenplaenter/DiaMetrics",
-    "description": "DiaMetrics is a web-based educational resource for exploring important concepts regarding binary classification (and its evaluation), which is important in many different fields such as psychodiagnostics (e.g. in determining cut-off values for tests), machine learning or medical testing."
+    "description": "DiaMetrics is a web-based educational resource for exploring important concepts regarding binary classification (and its evaluation), which is important in many different fields such as psychodiagnostics (e.g. in determining cut-off values for tests), machine learning or medical testing.",
+    "license": "MIT",
+    "last_update": "2024-02-25T16:02:48Z",
+    "homage": "https://lrosenplaenter.github.io/DiaMetrics"
   },
   {
     "name": "DiaMetrics_DE",
     "html_url": "https://github.com/lrosenplaenter/DiaMetrics_DE",
-    "description": null
+    "description": null,
+    "license": null,
+    "last_update": "2023-11-27T14:04:54Z",
+    "homage": "https://lrosenplaenter.github.io/DiaMetrics_DE"
   },
   {
     "name": "DiaMetrics_lite",
     "html_url": "https://github.com/lrosenplaenter/DiaMetrics_lite",
-    "description": "DiaMetrics (lite) is a web-based educational resource for exploring important concepts regarding binary classification (and its evaluation), which is important in many different fields such as psychodiagnostics (e.g. in determining cut-off values for tests), machine learning or medical testing."
+    "description": "DiaMetrics (lite) is a web-based educational resource for exploring important concepts regarding binary classification (and its evaluation), which is important in many different fields such as psychodiagnostics (e.g. in determining cut-off values for tests), machine learning or medical testing.",
+    "license": "MIT",
+    "last_update": "2024-02-27T21:12:28Z",
+    "homage": "https://lrosenplaenter.github.io/DiaMetrics_lite"
   },
   {
     "name": "lrosenplaenter.github.io",
     "html_url": "https://github.com/lrosenplaenter/lrosenplaenter.github.io",
-    "description": null
+    "description": null,
+    "license": null,
+    "last_update": "2024-03-05T21:42:46Z",
+    "homage": "https://lrosenplaenter.github.io/lrosenplaenter.github.io"
   },
   {
     "name": "Playa",
     "html_url": "https://github.com/lrosenplaenter/Playa",
-    "description": null
+    "description": null,
+    "license": null,
+    "last_update": "2024-02-06T20:40:05Z",
+    "homage": "https://lrosenplaenter.github.io/Playa"
   },
   {
     "name": "prezenta",
     "html_url": "https://github.com/lrosenplaenter/prezenta",
-    "description": null
+    "description": null,
+    "license": null,
+    "last_update": "2023-06-22T20:54:31Z",
+    "homage": "https://lrosenplaenter.github.io/prezenta"
   },
   {
     "name": "TEST",
     "html_url": "https://github.com/lrosenplaenter/TEST",
-    "description": null
+    "description": null,
+    "license": null,
+    "last_update": "2024-03-05T19:45:45Z",
+    "homage": "https://lrosenplaenter.github.io/TEST"
   }
 ]
