@@ -38,8 +38,12 @@ jobs:
         run: |
           repos=($(jq -r '.[].name' repos.json))
           for repo in "${repos[@]}"; do
-            TAG_DATA=$(curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" -s "https://api.github.com/repos/lrosenplaenter/${repo}/tags" | jq -r '.[0].name // null')
-            jq --arg repo "$repo" --arg tag "$TAG_DATA" '(.[] | select(.name==$repo) | .latest_tag) |= $tag' repos.json > tmp.$$.json && mv tmp.$$.json repos.json
+            TAG_DATA=$(curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" -s "https://api.github.com/repos/lrosenplaenter/${repo}/tags" | jq -r '.[0].name // empty')
+            if [ -z "$TAG_DATA" ]; then
+              jq --arg repo "$repo" '(.[] | select(.name==$repo) | .latest_tag) |= null' repos.json > tmp.$$.json && mv tmp.$$.json repos.json
+            else
+              jq --arg repo "$repo" --arg tag "$TAG_DATA" '(.[] | select(.name==$repo) | .latest_tag) |= $tag' repos.json > tmp.$$.json && mv tmp.$$.json repos.json
+            fi
           done
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
