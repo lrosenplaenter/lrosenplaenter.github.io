@@ -23,9 +23,22 @@ jobs:
 
       - name: Generate repositories list
         run: |
-          curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/users/lrosenplaenter/repos | jq '[.[] | {name: .name, html_url: .html_url, description: .description, license: .license.spdx_id, last_update: .pushed_at, homage: ("https://lrosenplaenter.github.io/" + .name)}]' > repos.json
+          curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/users/lrosenplaenter/repos | jq '[.[] | {name: .name, html_url: .html_url, description: .description, license: .license.spdx_id, last_update: .pushed_at, homepage: ("https://lrosenplaenter.github.io/" + .name)}]' > repos.json
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: Check homepage availability
+        run: |
+          jq '.[] | .homepage' repos.json | while read url; do
+            url=$(echo $url | tr -d '"') # Remove quotes around URL
+            if [ "$url" != "null" ]; then
+              STATUS_CODE=$(curl --write-out "%{http_code}\n" --silent --output /dev/null $url)
+              if [ "$STATUS_CODE" == "404" ]; then
+                # Set homepage to null for this URL
+                jq --arg url "$url" '(.[] | select(.homepage==$url) | .homepage) |= null' repos.json > tmp.$$.json && mv tmp.$$.json repos.json
+              fi
+            fi
+          done
 
       - name: Commit and push
         run: |
