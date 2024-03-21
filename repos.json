@@ -5,7 +5,7 @@
     "description": "DiaMetrics is a web-based educational resource for exploring important concepts regarding binary classification (and its evaluation), which is important in many different fields such as psychodiagnostics (e.g. in determining cut-off values for tests), machine learning or medical testing.",
     "license": "MIT",
     "last_update": "2024-02-25T16:02:48Z",
-    "homage": "https://lrosenplaenter.github.io/DiaMetrics"
+    "homepage": "https://lrosenplaenter.github.io/DiaMetrics"
   },
   {
     "name": "DiaMetrics_DE",
@@ -13,7 +13,7 @@
     "description": null,
     "license": null,
     "last_update": "2023-11-27T14:04:54Z",
-    "homage": "https://lrosenplaenter.github.io/DiaMetrics_DE"
+    "homepage": null
   },
   {
     "name": "DiaMetrics_lite",
@@ -21,15 +21,15 @@
     "description": "DiaMetrics (lite) is a web-based educational resource for exploring important concepts regarding binary classification (and its evaluation), which is important in many different fields such as psychodiagnostics (e.g. in determining cut-off values for tests), machine learning or medical testing.",
     "license": "MIT",
     "last_update": "2024-02-27T21:12:28Z",
-    "homage": "https://lrosenplaenter.github.io/DiaMetrics_lite"
+    "homepage": "https://lrosenplaenter.github.io/DiaMetrics_lite"
   },
   {
     "name": "lrosenplaenter.github.io",
     "html_url": "https://github.com/lrosenplaenter/lrosenplaenter.github.io",
     "description": null,
     "license": null,
-    "last_update": "2024-03-20T00:24:48Z",
-    "homage": "https://lrosenplaenter.github.io/lrosenplaenter.github.io"
+    "last_update": "2024-03-21T20:07:45Z",
+    "homepage": "https://lrosenplaenter.github.io/lrosenplaenter.github.io"
   },
   {
     "name": "Playa",
@@ -37,7 +37,7 @@
     "description": null,
     "license": null,
     "last_update": "2024-02-06T20:40:05Z",
-    "homage": "https://lrosenplaenter.github.io/Playa"
+    "homepage": null
   },
   {
     "name": "prezenta",
@@ -45,6 +45,6 @@
     "description": null,
     "license": null,
     "last_update": "2023-06-22T20:54:31Z",
-    "homage": "https://lrosenplaenter.github.io/prezenta"
+    "homepage": null
   }
 ]
