@@ -15,7 +15,7 @@
     "license": null,
     "last_update": "2023-11-27T14:04:54Z",
     "homepage": null,
-    "latest_tag": "null"
+    "latest_tag": null
   },
   {
     "name": "DiaMetrics_lite",
@@ -33,7 +33,7 @@
     "license": null,
     "last_update": "2024-02-06T20:40:05Z",
     "homepage": null,
-    "latest_tag": "null"
+    "latest_tag": null
   },
   {
     "name": "prezenta",
@@ -42,6 +42,6 @@
     "license": null,
     "last_update": "2023-06-22T20:54:31Z",
     "homepage": null,
-    "latest_tag": "null"
+    "latest_tag": null
   }
 ]
