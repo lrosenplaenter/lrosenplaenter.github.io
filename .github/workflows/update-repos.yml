@@ -74,5 +74,11 @@ jobs:
           fi
           
           git add repos.json
-          git commit -m "${COMMIT_MSG}"
-          git push
+
+          # Check if there are any changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "${COMMIT_MSG}"
+            git push
+          fi
