@@ -30,7 +30,7 @@ jobs:
           for repo in "${BLACKLISTED_REPOS[@]}"; do
             DATA=$(echo "$DATA" | jq --arg repoName "$repo" 'map(select(.name != $repoName))')
           done
-          echo "$DATA" | jq '[.[] | {name: .name, html_url: .html_url, description: .description, license: .license.spdx_id, last_update: .pushed_at, homepage: ("https://lrosenplaenter.github.io/" + .name)}] | sort_by(.last_update) | reverse' > repos.json
+          echo "$DATA" | jq '[.[] | select(.description != null) | {name: .name, html_url: .html_url, description: .description, license: .license.spdx_id, last_update: .pushed_at, homepage: ("https://lrosenplaenter.github.io/" + .name)}] | map(.last_update |= gsub("-|T|Z";"") | .last_update |= strptime("%Y%m%d%H%M%S") | .last_update |= strftime("%d.%m.%Y %H:%M")) | sort_by(.last_update) | reverse' > repos.json
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
@@ -68,9 +68,9 @@ jobs:
           
           # Determine if triggered by schedule or manual dispatch
           if [ "${{ github.event_name }}" = "schedule" ]; then
-            COMMIT_MSG="Automated update of repository list: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+            COMMIT_MSG="Automated update of repository list: $(date -u +"%d.%m.%Y %H:%M")"
           else
-            COMMIT_MSG="Manual update of repository list: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+            COMMIT_MSG="Manual update of repository list: $(date -u +"%d.%m.%Y %H:%M")"
           fi
           
           git add repos.json
