@@ -1,0 +1,94 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Leons Projects</title>
+    <link href="libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="libs/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        .card {
+            opacity: 0; /* Cards start as invisible */
+            transition: opacity 1s ease; /* Smooth transition for the opacity */
+         }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Navigation bar -->
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><h1>Leons Projects</h1></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#projects">Projects</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- About -->
+        <div id="about" class="container mt-3">
+            <h2>About</h2>
+            <p>I am currently studying psychology and data science and does 
+                a bit of programming (mostly data analysis in R and Matlab). I'm probably not that good at it, but 
+                I'm certainly making an effort. My Github is mainly about stuff for the web.</p>
+        </div>
+        <!-- Contact -->
+        <div id="contact" class="container mt-3">
+            <h2>Contact</h2>
+            <ul>
+                <li><i class="bi bi-box-arrow-up-right"></i> <a href="https://www.researchgate.net/profile/Leon-Rosenplaenter" target="_blank">Researchgate</a></li>
+                <li><i class="bi bi-box-arrow-up-right"></i> <a href="https://orcid.org/0009-0001-4961-2281" target="_blank">ORCID</a></li>
+                <li><i class="bi bi-box-arrow-up-right"></i> <a href="https://bsky.app/profile/lrosenplaenter.bsky.social" target="_blank">Bluesky</a></li>
+                <li><i class="bi bi-box-arrow-up-right"></i> <a href="https://twitter.com/lrosenplaenter" target="_blank">Xitter</a></li>
+            </ul>
+        </div>
+        <!-- Projects -->
+        <div id="projects" class="container mt-3">
+            <h2>Projects</h2>
+            <div id="projects-container" class="container p-0">
+                <div class="row" id="projects-row"></div>
+            </div>
+            
+            <div id="loadingIndicator" class="text-center">
+                <div class="spinner-grow text-secondary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>        
+    </main>
+
+    <footer class="text-muted py-5">
+        <div class="container">
+            <a href="#" class="position-fixed bottom-0 end-0 mb-3 me-3 button-primary" style="font-size: 2rem;">
+                <i class="bi bi-arrow-up-circle-fill"></i>
+            </a>
+        </div>
+    </footer>
+
+    <footer class="text-muted py-5">
+        <div class="container">
+            <p class="text-center">Copyright (c) 2024. Assembled using <a href="https://github.com/twbs/bootstrap" target="_blank">Bootstrap</a> and <a href="https://github.com/twbs/icons" target="_blank">Bootstrap Icons</a></p>
+        </div>
+    </footer>
+
+    <script src="libs/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="repos.js"></script>
+
+</body>
+</html>
