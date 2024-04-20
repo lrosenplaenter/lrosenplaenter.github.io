@@ -1,20 +1,20 @@
 [
   {
-    "name": "DiaMetrics",
-    "html_url": "https://github.com/lrosenplaenter/DiaMetrics",
-    "description": "DiaMetrics is a web-based educational resource for exploring important concepts regarding binary classification (and its evaluation), which is important in many different fields such as psychodiagnostics (e.g. in determining cut-off values for tests), machine learning or medical testing.",
-    "license": "MIT",
-    "last_update": "25.02.2024 16:02",
-    "homepage": "https://lrosenplaenter.github.io/DiaMetrics",
-    "latest_tag": "v1.0.0"
-  },
-  {
     "name": "DiaMetrics_lite",
     "html_url": "https://github.com/lrosenplaenter/DiaMetrics_lite",
     "description": "DiaMetrics (lite) is a web-based educational resource for exploring important concepts regarding binary classification (and its evaluation). While the \"full\" version is primarily intended for independent learning, the lite version is intended for use with direct instruction (e.g. in the context of lectures or talks).",
     "license": "MIT",
-    "last_update": "17.04.2024 13:53",
+    "last_update": "2024-04-17 13:53",
     "homepage": "https://lrosenplaenter.github.io/DiaMetrics_lite",
     "latest_tag": "v1.1.0"
+  },
+  {
+    "name": "DiaMetrics",
+    "html_url": "https://github.com/lrosenplaenter/DiaMetrics",
+    "description": "DiaMetrics is a web-based educational resource for exploring important concepts regarding binary classification (and its evaluation), which is important in many different fields such as psychodiagnostics (e.g. in determining cut-off values for tests), machine learning or medical testing.",
+    "license": "MIT",
+    "last_update": "2024-02-25 16:02",
+    "homepage": "https://lrosenplaenter.github.io/DiaMetrics",
+    "latest_tag": "v1.0.0"
   }
 ]
