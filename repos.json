@@ -4,9 +4,9 @@
     "html_url": "https://github.com/lrosenplaenter/TheInternetsTreasureChest",
     "description": "A collection of links to resources I like, presented on a static website.",
     "license": "GPL-3.0",
-    "last_update": "2025-03-15 00:11",
+    "last_update": "2025-03-15 00:16",
     "homepage": "https://lrosenplaenter.github.io/TheInternetsTreasureChest",
-    "latest_tag": null
+    "latest_tag": "v0.1.0"
   },
   {
     "name": "DiaMetrics_lite",
