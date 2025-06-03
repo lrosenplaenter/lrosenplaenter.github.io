@@ -1,5 +1,14 @@
 [
   {
+    "name": "G-Cal-Desktop",
+    "html_url": "https://github.com/lrosenplaenter/G-Cal-Desktop",
+    "description": "G-Cal Desktop is an unofficial desktop application that provides Google Calendar in its own window.",
+    "license": "MIT",
+    "last_update": "2025-06-03 20:10",
+    "homepage": null,
+    "latest_tag": "v1.0.0"
+  },
+  {
     "name": "TheInternetsTreasureChest",
     "html_url": "https://github.com/lrosenplaenter/TheInternetsTreasureChest",
     "description": "A collection of links to resources I like, presented on a static website.",
