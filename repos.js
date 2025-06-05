@@ -29,7 +29,7 @@ function displayReposAsCards(repos) {
                                 <i class="bi bi-tags-fill"></i> ${repo.latest_tag}
                             </span>
                             <span class="badge text-bg-secondary">
-                                <i class="bi bi-shield-lock-fill"></i> License: <a href="${repo.html_url}/blob/main/LICENSE.md" class="text-light" target="_blank">${repo.license ? repo.license : 'No license specified.'}</a>
+                                <i class="bi bi-shield-lock-fill"></i> License: <a href="${repo.html_url}/blob/main/LICENSE" class="text-light" target="_blank">${repo.license ? repo.license : 'No license specified.'}</a>
                             </span>
                             <span class="badge text-bg-secondary">
                                 <i class="bi bi-calendar3-week"></i> Last Update: ${repo.last_update}
@@ -100,7 +100,7 @@ function determine_color (str) {
         const value = (hash >> (i * 8)) & 0xff
         colour += value.toString(16).padStart(2, '0')
     }
-    return colour
+    return colour;
 }
 
 function invertColor(hex) {
