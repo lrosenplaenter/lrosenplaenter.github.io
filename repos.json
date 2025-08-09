@@ -4,9 +4,9 @@
     "html_url": "https://github.com/lrosenplaenter/Choreify",
     "description": "Choreify is a simple, easy-to-use chore management and gamification app for families and small teams.",
     "license": "MIT",
-    "last_update": "2025-08-09 20:04",
+    "last_update": "2025-08-09 20:09",
     "homepage": null,
-    "latest_tag": "v0.0.1"
+    "latest_tag": "v0.0.1-alpha"
   },
   {
     "name": "Bodymap-for-LimeSurvey",
