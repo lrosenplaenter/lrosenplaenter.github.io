@@ -1,5 +1,14 @@
 [
   {
+    "name": "Choreify",
+    "html_url": "https://github.com/lrosenplaenter/Choreify",
+    "description": "Choreify is a simple, easy-to-use chore management and gamification app for families and small teams.",
+    "license": "MIT",
+    "last_update": "2025-08-09 20:04",
+    "homepage": null,
+    "latest_tag": "v0.0.1"
+  },
+  {
     "name": "Bodymap-for-LimeSurvey",
     "html_url": "https://github.com/lrosenplaenter/Bodymap-for-LimeSurvey",
     "description": "Interactive bodymap for LimeSurvey: lets participants select body regions on an image instead of using checkboxes. Ideal for medical or psychological surveys.",
